@@ -1,0 +1,36 @@
+﻿<div class="container col-md-10">
+    <form name="skjema" ng-show="visSkjema">
+        <div class="form-group">
+            <label>Kategori</label>
+            <!--Kategori med dropdown som viser alle mulige kategorier-->
+            <select class="form-control" name="kategori" id="kategori" ng-model="kategori" ng-required="true">
+                <option value="" selected style="display:none;">Velg en kategori</option>
+                <option ng-repeat="element in kategorier" value="{{element.navn}}">{{element.navn}}</option>
+            </select>
+            <span class="help-block text-danger" ng-show="skjema.kategori.$dirty && skjema.kategori.$error.required">Du må velge en kategori</span>
+        </div>
+        <div class="form-group">
+            <label>Spørsmål</label>
+            <textarea class="form-control" rows="8" id="sporsmal" name="sporsmal" ng-model="sporsmal" ng-required="true" placeholder="Skriv inn ditt spørsmål"></textarea>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="skjema.sporsmal.$dirty && skjema.sporsmal.$error.required"></span>
+            <span class="help-block text-danger" ng-show="skjema.sporsmal.$dirty && skjema.sporsmal.$error.required">Du må skrive inn et spørsmål</span>
+        </div>
+        <div class="form-group">
+            <label>Epost</label>
+            <input class="form-control" type="text" placeholder="Skriv inn din epost" name="epost" id="epost" ng-model="epost" ng-required="true" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" />
+            <span ng-show="skjema.epost.$dirty && skjema.epost.$invalid">
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                <span class="help-block text-danger" ng-show="skjema.epost.$error.required">Du må skrive inn et epost</span>
+                <span class="help-block text-danger" ng-show="skjema.epost.$error.pattern">Ugyldig epost</span>
+            </span>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-success" ng-click="sendSporsmal()" ng-disabled="skjema.$invalid" data-toggle="tooltip" data-placement="right" title="Blir aktiv når alle felt er gyldige">Send</a>
+        </div>
+        
+    </form>
+    <div ng-show="!visSkjema" class="center-block text-center">
+        <h3>Takk for hendvendelsen! Vi vil ta kontakt så fort en av våre kundebehandlere er ledig.</h3>
+        <a href="/FAQ" class="btn btn-default">Tilbake til FAQ</a>
+    </div>
+</div> 

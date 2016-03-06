@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../../Content/site.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg" href="../../Pictures/icon_question.png" />
+    <script src="../jquery-2.1.4.min.js" defer></script>
+    <script src="../angular.js" defer></script>
+    <script src="../angular-route.js" defer></script>
+    <script src="../bootstrap.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="script.js" defer></script>
+    <base href="/" />
+</head>
+<!-- TODO - Innlogging for ansatt eller info om hack.-->
+<body>
+    <div id="beholder">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Skobutikken</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="/FAQ">Spørsmål  <span class="glyphicon glyphicon-question-sign"></span></a></li>
+                        <li><a href="/Ansatte">Ansatte  <span class="glyphicon glyphicon-user"></span></a></li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="text-center">
+                <h2 ng-show="heading=='FAQ'">FAQ</h2>
+                <h2 ng-show="heading=='Kontakt'">Kontaktskjema</h2>
+                <h2 ng-show="heading=='Liste'">Innsendte spørsmål</h2>
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-md-2" ng-show="visNav">
+                    <ul class="nav nav-pills nav-stacked black">
+                        <li class="active"><a href="/FAQ">FAQ</a></li>
+                        <li><a href="/Kontakt">Kontakt oss</a></li>
+                    </ul>
+                </div>
+                <div ng-view></div>
+            </div>
+        </div>
+        <footer class="navbar navbar-default navbar-fixed-bottom navbar-">
+            <p><center>&copy;Mappeoppgave i Webapplikasjoner for Hallbjørn Storruste</center></p>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

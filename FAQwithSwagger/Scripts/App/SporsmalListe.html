@@ -1,0 +1,20 @@
+﻿<div class="text-center" ng-show="laster"><h3>Laster data ...</h3></div>
+<table class="table table-striped col-md-12">
+    <thead>
+        <tr>
+            <th>Dato</th>
+            <th>Kategori</th>
+            <th>Spørsmål</th>
+            <th>Epost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="element in sporsmal">
+            <td>{{element.dato}}</td>
+            <td>{{element.kategori}}</td>
+            <td>{{element.sporsmal}}</td>
+            <td>{{element.epost}}</td>
+        </tr>
+    </tbody>
+</table>
+<p class="text-info text-center">Denne siden er bare til bruk for ansatte, men siden oppgaven har et begrenset omfang er det ingen innlogging.</p>
